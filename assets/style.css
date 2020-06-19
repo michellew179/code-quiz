@@ -3,8 +3,20 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.jumbotron {
+    background: url(https://d2j1wkp1bavyfs.cloudfront.net/wp-content/uploads/2018/07/rsz_step-brothers-2008.jpg);
+    no-repeat: 50% 50%;
+    background-size: 100%;
+    margin-top: 0;
+}
+.jumbotron, h1 {
+    color: darkslategray;
+    margin-top: 10px;
+}
 
-body {
+
+/* switched from body to main, as it was affecting my header */
+main {
     padding: 0;
     margin: 0;
     display: flex;
@@ -12,7 +24,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: royalblue;
+    background-color: whitesmoke;
 
 }
 
@@ -27,7 +39,7 @@ body.wrong {
 .container {
     width: 600px;
     max-width: 70%;
-    background-color: darkslategray;
+    background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -41,8 +53,10 @@ body.wrong {
 }
 
 .btn {
-    background-color: crimson;
+    background-color: darkslategray;
+    opacity: 90%;
     /* box-shadow: 0 0 1px 1px; */
+    color: whitesmoke;
     border-radius: 5px;
     padding: 5px 10px;
     outline: none;

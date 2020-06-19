@@ -3,20 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- added from bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Code Quiz</title>
-
+    <!-- linked bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <!-- change classes later? -->
 <!-- class right= colors green, class wrong= colors red -->
 
 <body class="correct wrong">
+    <!-- added jumbotron from bootstrap -->
+    <header>
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, Miss Lady!</h1>
+            <p class="lead">Select the Start button below to test</p>
+            <p class="lead">your knowledge of Step Brothers!</p>
+            <!-- <hr class="my-4"> -->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </header>
     <main>
+        <!-- add card mb-3 if I want to add images later -->
         <div class="container">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div id="questions-container" class="hide">
-                <div id="question">Question</div>
+                <div id="question">Select the start button to test your knowledge of Step Brothers!</div>
                 <div id="answer-buttons" class="btn-grid">
                     <button class="btn">Answer 1</button>
                     <button class="btn">Answer 2</button>

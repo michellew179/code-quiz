@@ -8,11 +8,12 @@ var answerButtons = document.getElementById('answer-buttons');
 var mixQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame);
+// remove, cycle to next questions
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     nextQuestion();
 })
-
+// starts game, removes start button, starts slide of ?'s
 function startGame() {
     console.log('Started');
     startButton.classList.add('hide');
@@ -21,12 +22,13 @@ function startGame() {
     questionsContainer.classList.remove('hide');
     nextQuestion()
 }
-
+// clears start button, shows next question
 function nextQuestion() {
     resetButtons()
-    showQuestion(mixQuestions[currentQuestionIndex]);
+    var currentQuestion = mixQuestions[currentQuestionIndex];
+    showQuestion(currentQuestion);
 }
-
+// 
 function showQuestion(question) {
     getQuestion.innerText = question.question;
 
@@ -40,7 +42,19 @@ function showQuestion(question) {
         }
         button.addEventListener('click', selectAnswer);
         answerButtons.appendChild(button);
-    })
+    });
+    // es6 fat arrow function 
+    // question.answer.forEach(function(answer){
+    //     var button = document.createElement('button');
+    //     button.innerText = answer.text;
+    //     button.classList.add('btn');
+
+    //     if (answer.correct) {
+    //         button.dataset.correct = answer.correct;
+    //     }
+    //     button.addEventListener('click', selectAnswer);
+    //     answerButtons.appendChild(button);
+    // });
 
 }
 
