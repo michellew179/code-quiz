@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <!-- change classes later? -->
-<!-- class right= colors green, class wrong= colors red -->
+<!-- remove correct, wrong?   -->
 
 <body class="correct wrong">
     <!-- added jumbotron from bootstrap -->
@@ -23,8 +23,7 @@
             <p class="lead">Select the Start button below to test</p>
             <p class="lead">your knowledge of Step Brothers!</p>
             <!-- <hr class="my-4"> -->
-            <br>
-            <br>
+            <!-- adjust picture without breaks? -->
             <br>
             <br>
             <br>
@@ -35,18 +34,21 @@
         <!-- add card mb-3 if I want to add images later -->
         <div class="container">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <!-- class of hide so it doesn't show up right away -->
             <div id="questions-container" class="hide">
-                <div id="question">Select the start button to test your knowledge of Step Brothers!</div>
+                <!-- added timer -->
+                <div id="question">Questions</div>
                 <div id="answer-buttons" class="btn-grid">
-                    <button class="btn">Answer 1</button>
-                    <button class="btn">Answer 2</button>
-                    <button class="btn">Answer 3</button>
-                    <button class="btn">Answer 4</button>
+                    <button class="btn select-btn">Answer 1</button>
+                    <button class="btn select-btn">Answer 2</button>
+                    <button class="btn select-btn">Answer 3</button>
+                    <button class="btn select-btn">Answer 4</button>
                 </div>
             </div>
             <div class="controls">
                 <!-- linked start-btn to js -->
                 <button id="start-btn" class="start-btn btn">Start</button>
+                <!-- hid next button, not using -->
                 <button id="next-btn" class="next-btn btn hide">Next</button>
             </div>
         </div>

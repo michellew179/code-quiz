@@ -1,101 +1,18 @@
 // linked to start-btn in html
+// var for start button
 var startButton = document.getElementById('start-btn');
+// remove next and switch to buttonSelected
 var nextButton = document.getElementById('next-btn');
+// div that contains the questions
 var questionsContainer = document.getElementById('questions-container');
+// div that displays the question
 var getQuestion = document.getElementById('question');
+// links to answer buttons
 var answerButtons = document.getElementById('answer-buttons');
+// var for buttons that have answers on them, same as above?
+// var buttonSelected = document.getElementsByClassName('select-btn');
 
-var mixQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', startGame);
-// remove, cycle to next questions
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    nextQuestion();
-})
-// starts game, removes start button, starts slide of ?'s
-function startGame() {
-    console.log('Started');
-    startButton.classList.add('hide');
-    mixQuestions = questions.sort(() => Math.random() - .5);
-    currentQuestionIndex = 0;
-    questionsContainer.classList.remove('hide');
-    nextQuestion()
-}
-// clears start button, shows next question
-function nextQuestion() {
-    resetButtons()
-    var currentQuestion = mixQuestions[currentQuestionIndex];
-    showQuestion(currentQuestion);
-}
-// 
-function showQuestion(question) {
-    getQuestion.innerText = question.question;
-
-    question.answer.forEach(answer => {
-        var button = document.createElement('button');
-        button.innerText = answer.text;
-        button.classList.add('btn');
-
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener('click', selectAnswer);
-        answerButtons.appendChild(button);
-    });
-    // es6 fat arrow function 
-    // question.answer.forEach(function(answer){
-    //     var button = document.createElement('button');
-    //     button.innerText = answer.text;
-    //     button.classList.add('btn');
-
-    //     if (answer.correct) {
-    //         button.dataset.correct = answer.correct;
-    //     }
-    //     button.addEventListener('click', selectAnswer);
-    //     answerButtons.appendChild(button);
-    // });
-
-}
-
-function resetButtons() {
-    clearStatusClass(document.body);
-    nextButton.classList.add('hide');
-
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-
-}
-
-function selectAnswer(e) {
-    var selectedButton = e.target;
-    var correct = selectedButton.dataset.correct;
-    setStatusClass(document.body, correct)
-    Array.from(answerButtons.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct);
-    })
-    if (mixQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide');
-    } else {
-        startButton.innerText = 'Restart';
-        startButton.classList.remove('hide');
-    }
-}
-
-function setStatusClass(element, correct) {
-    clearStatusClass(element);
-    if (correct) {
-        element.classList.add('correct');
-    } else {
-        element.classList.add('wrong');
-    }
-}
-
-function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('wrong');
-}
 
 const questions = [
     {
@@ -144,3 +61,97 @@ const questions = [
         ]
     },
 ]
+
+var mixQuestions, currentQuestionIndex
+
+startButton.addEventListener('click', startGame);
+// remove, cycle to next questions
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    nextQuestion();
+})
+// starts game, removes start button, starts slide of ?'s
+function startGame() {
+    startButton.classList.add('hide');
+    mixQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    questionsContainer.classList.remove('hide');
+    nextQuestion()
+}
+// clears start button, shows next question
+function nextQuestion() {
+    resetButtons()
+    var currentQuestion = mixQuestions[currentQuestionIndex];
+    showQuestion(currentQuestion);
+}
+// 
+function showQuestion(question) {
+    getQuestion.innerText = question.question;
+
+    question.answer.forEach(answer => {
+        var button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+        answerButtons.appendChild(button);
+    });
+}
+
+function resetButtons() {
+    clearStatusClass(document.body);
+    nextButton.classList.add('hide');
+
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+
+}
+// only works if semi-colons aren't present??
+function selectAnswer(e) {
+    var selectedButton = e.target;
+    var correct = selectedButton.dataset.correct;
+    setStatusClass(document.body, correct)
+    Array.from(answerButtons.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (mixQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove('hide')
+    } else {
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
+    }
+}
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element);
+    if (correct) {
+        element.classList.add('correct');
+    } else {
+        element.classList.add('wrong');
+    }
+
+
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct');
+    element.classList.remove('wrong');
+}
+
+// var questionTime = 10;
+// var count = 0;
+
+// function counterRender() {
+//     if (count <= questionTime) {
+//         counterRender.innerHTML = count;
+//         count++;
+//     } else {
+//         count = 0;
+//         answerIsWrong();
+
+//     }
+// }

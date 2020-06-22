@@ -5,7 +5,7 @@
 
 .jumbotron {
     background: url(https://d2j1wkp1bavyfs.cloudfront.net/wp-content/uploads/2018/07/rsz_step-brothers-2008.jpg);
-    no-repeat: 50% 50%;
+    /* no-repeat: 50% 50%; */
     background-size: 100%;
     margin-top: 0;
 }
@@ -19,7 +19,8 @@
 main {
     padding: 0;
     margin: 0;
-    display: flex;
+    /* removing flex pushed display back to top, not center of page */
+    /* display: flex; */
     width: 100vw;
     height: 100vh;
     justify-content: center;
@@ -66,7 +67,7 @@ body.wrong {
     border-color: black;
 
 }
-
+/* move correct and wrong classes to answer buttons only? */
 .btn.correct {
     background-color: seagreen;
 }
@@ -74,19 +75,19 @@ body.wrong {
 .btn.wrong {
     background-color: red;
 }
-
+/* removed net-btn */
 .start-btn, .next-btn {
     font-size: 1rem;
     font-weight: bold;
     padding: 10px 20px;
 }
-
+/* div controls start and next buttons */
 .controls {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+/* hides questions div, start, and next buttons */
 .hide {
     display: none;
 }
